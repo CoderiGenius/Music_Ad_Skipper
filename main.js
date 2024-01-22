@@ -1,14 +1,29 @@
 // ==UserScript==
 // @name         Spotify ad skipper DIY
-// @version      1.1
+// @version      1.2
 // @namespace    http://tampermonkey.net/
 // @description  Detects and skips ads on spotify
 // @match        https://*.spotify.com/*
-// @grant        none
+// @grant        GM_addStyle
 // @run-at       document-start
 // @downloadURL  https://raw.githubusercontent.com/CoderiGenius/Music_Ad_Skipper/main/main.js
 // @updateURL    https://raw.githubusercontent.com/CoderiGenius/Music_Ad_Skipper/main/main.js
 // ==/UserScript==
+
+GM_addStyle(`
+    #custom-notification {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background-color: #4CAF50;
+        color: #fff;
+        padding: 15px;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        display: none;
+    }
+`);
+
 !async function () {
 
     setTimeout(startDetecting, 10000);
@@ -23,6 +38,7 @@ function startMusic(){
 
     elements[number].click();
     console.log("Click music:", number);
+    showNotification('Started music successfully!');
 }
 
 function startDetecting(){
@@ -66,3 +82,22 @@ var maxRange = 100;
 var randomNum = getRandomNumber(minRange, maxRange);
 console.log(randomNum);
 
+function showNotification(message) {
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.id = 'custom-notification';
+    notification.textContent = message;
+
+    // Append notification to the body
+    document.body.appendChild(notification);
+
+    // Show notification
+    notification.style.display = 'block';
+
+    // Automatically hide after 3 seconds
+    setTimeout(() => {
+        notification.style.display = 'none';
+        // Remove notification element from the DOM after hiding
+        document.body.removeChild(notification);
+    }, 3000);
+}
