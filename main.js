@@ -6,8 +6,8 @@
 // @match        https://*.spotify.com/*
 // @grant        none
 // @run-at       document-start
-// @downloadURL  https://gist.githubusercontent.com/Simonwep/24f8cdcd6d32d86e929004013bd660ae/raw
-// @updateURL    https://gist.githubusercontent.com/Simonwep/24f8cdcd6d32d86e929004013bd660ae/raw
+// @downloadURL  https://raw.githubusercontent.com/CoderiGenius/Music_Ad_Skipper/main/main.js
+// @updateURL    https://raw.githubusercontent.com/CoderiGenius/Music_Ad_Skipper/main/main.js
 // ==/UserScript==
 !async function () {
 
