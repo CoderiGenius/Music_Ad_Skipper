@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Spotify ad skipper DIY
-// @version      1.0
+// @version      1.1
 // @namespace    http://tampermonkey.net/
 // @description  Detects and skips ads on spotify
 // @match        https://*.spotify.com/*
@@ -59,7 +59,7 @@ function getRandomNumber(min, max) {
     // 取整并返回结果
     return Math.floor(randomNumber);
 }
-// 歌曲范围
+// 随机歌曲范围
 var minRange = 1;
 var maxRange = 100;
 
